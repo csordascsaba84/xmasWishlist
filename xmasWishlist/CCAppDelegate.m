@@ -16,12 +16,21 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+-(void)customizeApperance{
+    //Create resizeble image
+    UIImage *navGrad = [[UIImage imageNamed:@"topslice"] resizableImageWithCapInsets:UIEdgeInsetsMake(0,0,0,0)];
+    [[UINavigationBar appearance] setBackgroundImage:navGrad forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *tabGrad = [[UIImage imageNamed:@"bottomslice"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0 )];
+    [[UITabBar appearance] setBackgroundImage:tabGrad];
+    
+    [[UITableView appearance] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    CCMasterViewController *controller = (CCMasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
+    [self customizeApperance];
     return YES;
 }
 							
