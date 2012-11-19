@@ -52,6 +52,8 @@
     
     NSDateComponents *christmasDayComponents = [gregorian components:(NSDayCalendarUnit) fromDate:now toDate:christmasDate options:0];
     
+    
+    //Jump to next year after Christmas day.
     if([christmasDayComponents day] < 0){
         
         NSString *christmasDateString = [NSString stringWithFormat:@"%d-12-25", year+1];
